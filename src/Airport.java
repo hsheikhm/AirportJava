@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Airport {
 
-    private int defaultCapacity = 20;
+    private static final int DEFAULT_CAPACITY = 20;
 
     ArrayList<Plane> planes;
     int capacity;
 
     public Airport() {
         this.planes = new ArrayList<>();
-        this.capacity = defaultCapacity;
+        this.capacity = DEFAULT_CAPACITY;
     }
 
     public Airport(int airportCapacity) {
@@ -53,20 +53,6 @@ public class Airport {
 
     protected boolean stormyWeather() {
         return Math.random() > 0.95;
-    }
-
-    public static void main(String[] args) throws AirportException {
-        Airport airportA = new Airport();
-        Airport airportB = new Airport(30);
-        System.out.println(airportA.capacity);
-        System.out.println(airportB.capacity);
-        System.out.println();
-
-        airportB.land(new Plane());
-        airportB.land(new Plane());
-        System.out.println(airportB.planes.size());
-        airportB.takeOff();
-        System.out.println(airportB.planes.size());
     }
 
 }
